@@ -4,7 +4,7 @@ import elements.TextField;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utils.CheckStringForBagsUtil;
+import utils.StringUtil;
 import utils.JsonDataUtil;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class MenBackPacksPage extends BasePage {
             testBag = "PUMA Рюкзак Phase Backpack";
         }
         for (WebElement bag : getAllBags()) {
-            if (CheckStringForBagsUtil.compareStrings(testBag, bag.getAttribute("textContent"))) {
+            if (StringUtil.compareStrings(testBag, bag.getAttribute("textContent"))) {
                 bag.click();
                 break;
             }

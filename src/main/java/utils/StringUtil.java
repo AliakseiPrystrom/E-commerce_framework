@@ -2,7 +2,7 @@ package utils;
 
 import java.util.Locale;
 
-public class CheckStringForBagsUtil {
+public class StringUtil {
 
     public static boolean compareStrings(String testValue, String valueFromPage) {
         int count = 0;
@@ -17,5 +17,12 @@ public class CheckStringForBagsUtil {
             }
         }
         return count == arr.length;
+    }
+
+    public static String deleteQuotes(String string) {
+        char[] arr = string.toCharArray();
+        arr[0] = Character.toLowerCase(' ');
+        arr[arr.length - 1] = Character.toLowerCase(' ');
+        return new String(arr).trim();
     }
 }

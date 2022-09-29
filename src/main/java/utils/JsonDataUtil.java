@@ -1,6 +1,7 @@
 package utils;
 
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.*;
 
@@ -9,50 +10,33 @@ public class JsonDataUtil {
     private final static String testUrlsPath = "src/test/resources/testurls.json";
     private final static String testConfigPath = "src/test/resources/configuration.json";
 
-    public static String get(String type, String key) {
-        JSONObject object;
-        switch (type) {
-            case ("config"):
-                object = new JSONObject(getJsonString(testConfigPath));
-                break;
-            case ("testurls"):
-                object = new JSONObject(getJsonString(testUrlsPath));
-                break;
-            case ("testdata"):
-                object = new JSONObject(getJsonString(testDataFilePath));
-                break;
-            default:
-                object = null;
-                break;
-        }
-        return object.getString(key);
+    private static String getJsonString(String jsonFilePath,String key){
+        String value = "";
+        try {
+            FileReader reader = new FileReader(jsonFilePath);
+            Gson gson = new Gson();
+            JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
+            value = jsonObject.get(key).toString();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }return value;
     }
 
-    private static String getJsonString(String path) {
-        String json = "";
-        File file = new File(path);
-        FileInputStream fis = null;
-        BufferedInputStream bis = null;
-        DataInputStream dis = null;
-        try {
-            fis = new FileInputStream(file);
-            bis = new BufferedInputStream(fis);
-            dis = new DataInputStream(bis);
-            while (dis.available() != 0) {
-                json += dis.readLine();
-            }
-            json = json.replace("null", "");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fis.close();
-                bis.close();
-                dis.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+    public static String get(String type, String key) {
+        String value = "";
+        switch (type) {
+            case ("config"):
+                value = getJsonString(testConfigPath,key);
+                break;
+            case ("testurls"):
+                value = getJsonString(testUrlsPath,key);
+                break;
+            case ("testdata"):
+                value = getJsonString(testDataFilePath,key);
+                break;
+            default:
+                break;
         }
-        return json;
+        return StringUtil.deleteQuotes(value);
     }
 }
