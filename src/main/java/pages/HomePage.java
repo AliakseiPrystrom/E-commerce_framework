@@ -34,7 +34,7 @@ public class HomePage extends BasePage {
     }
 
     public boolean checkCurrentLocation() {
-        String location = "Брест";
+        String location = StringUtil.correctEncode("Брест");
         return currentCitySelected.getAttribute("textContent").contains(location);
     }
 
