@@ -13,9 +13,9 @@ import utils.WaitUtils;
 import java.util.Locale;
 
 public class BagPage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//button[@aria-label='Добавить в корзину']"), "uniqueElement");
-    private final Button openDetails = new Button(By.xpath("//span/following-sibling::a"), "openDetails");
-    private final Button openColorDropDown = new Button(By.xpath("//div[@tabindex]//a[@role]"), "selectColoDropDown");
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//button[@aria-label='Добавить в корзину']")), "uniqueElement");
+    private final Button openDetails = new Button(By.xpath(StringUtil.correctEncode("//span/following-sibling::a")), "openDetails");
+    private final Button openColorDropDown = new Button(By.xpath(StringUtil.correctEncode("//div[@tabindex]//a[@role]")), "selectColoDropDown");
     private Label testColorSelect;
     private String currentColorPath = StringUtil.correctEncode("//span[text()='%s']");
     private String testDataColor = JsonDataUtil.get("testdata", "backPackColor");

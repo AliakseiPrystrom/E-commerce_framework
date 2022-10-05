@@ -12,8 +12,8 @@ import utils.WaitUtils;
 public class SportCataloguePage extends BasePage {
     private final UniqElement uniqElement = new UniqElement(By.xpath(StringUtil.correctEncode("//div[contains(@class,'js-slick-slide slick-slide slick-current')]/.//p[text()='Кроссовки и кеды']")), "uniqueElement");
     private final Button fitnessPlateButton = new Button(By.xpath(StringUtil.correctEncode("//div[text() = 'Фитнес']/..")), "fitnessPlateButton");
-    private final Label fitnessPlates = new Label(By.xpath("//div[@class='sport-types-plates-wrap']"), "fitnessPlates");
-    private final String SPORTS_PAGE_ENDPOINT = JsonDataUtil.get("testurls", "womanSportsPageEndpoint");
+    private final Label fitnessPlates = new Label(By.xpath(StringUtil.correctEncode("//div[@class='sport-types-plates-wrap']")), "fitnessPlates");
+    private final String SPORTS_PAGE_ENDPOINT = StringUtil.correctEncode(JsonDataUtil.get("testurls", "womanSportsPageEndpoint"));
 
     @Override
     public SportCataloguePage openPage() {

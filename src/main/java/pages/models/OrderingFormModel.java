@@ -7,20 +7,21 @@ import org.openqa.selenium.WebElement;
 import pages.CartPage;
 import utils.ActionsUtil;
 import utils.ShowValidationUtil;
+import utils.StringUtil;
 import utils.WaitUtils;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class OrderingFormModel extends CartPage {
-    private final Input phoneInput = new Input(By.xpath("//input[@id='phone']"), "phoneInput");
-    private final Input cityInput = new Input(By.xpath("//input[@id='city_name']"), "cityInput");
-    private final Input fNameInput = new Input(By.xpath("//input[@id='first_name']"), "fNameInput");
-    private final Input lNameInput = new Input(By.xpath("//input[@id='last_name']"), "lNameInput");
-    private final Input emailInput = new Input(By.xpath("//input[@id='email']"), "emailInput");
-    private final Input streetInput = new Input(By.xpath("//input[@id='street']"), "streetInput");
-    private final String easyWay = "//div[@class='input__validation-message input__validation-message_default-theme']";
-    private final String hardWay = "//div[@class='input-material__validation-message']";
+    private final Input phoneInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='phone']")), "phoneInput");
+    private final Input cityInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='city_name']")), "cityInput");
+    private final Input fNameInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='first_name']")), "fNameInput");
+    private final Input lNameInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='last_name']")), "lNameInput");
+    private final Input emailInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='email']")), "emailInput");
+    private final Input streetInput = new Input(By.xpath(StringUtil.correctEncode("//input[@id='street']")), "streetInput");
+    private final String easyWay = StringUtil.correctEncode("//div[@class='input__validation-message input__validation-message_default-theme']");
+    private final String hardWay = StringUtil.correctEncode("//div[@class='input-material__validation-message']");
 
     public void setCityField() {
         cityInput.sendKeys("Минск");

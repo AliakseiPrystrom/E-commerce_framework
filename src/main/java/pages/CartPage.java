@@ -13,7 +13,7 @@ import utils.StringUtil;
 public class CartPage extends BasePage {
     private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//p[text()='Оформление заказа']")), "uniqueElement");
     private final Label checkArticle = new Label(By.xpath(StringUtil.correctEncode("//a[@data-quick]")), "checkArticle");
-    private final TextField mainField = new TextField(By.xpath("//main"), "mainField");
+    private final TextField mainField = new TextField(By.xpath(StringUtil.correctEncode("//main")), "mainField");
     private final String goToOrder = StringUtil.correctEncode("//span[text()='Перейти к оформлению заказа']");
 
     @Override
@@ -36,7 +36,7 @@ public class CartPage extends BasePage {
     public CartPage validateRequiredCartFields() {
         ActionsUtil.waitActions();
         OrderingFormModel inputPage = new OrderingFormModel();
-        if (!mainField.getAttribute("textContent").contains("Оформление заказа")) {
+        if (!mainField.getAttribute("textContent").contains(StringUtil.deleteQuotes("Оформление заказа"))) {
             Button button = new Button(By.xpath(goToOrder), "goToOrder");
             button.click();
             inputPage.showValidationConstraintsSecondWay();

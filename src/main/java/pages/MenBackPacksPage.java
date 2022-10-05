@@ -11,8 +11,8 @@ import java.util.List;
 
 public class MenBackPacksPage extends BasePage {
     private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h1[text()='Мужские рюкзаки и мешки']")), "uniqueElement");
-    private final String MEN_BACKPACK_PAGE_ENDPOINT = JsonDataUtil.get("testurls", "menBackpackPageEndpoint");
-    private final TextField allBagPacksOnPage = new TextField(By.xpath("//div[@class='x-product-card__card']"), "allBagPacks");
+    private final String MEN_BACKPACK_PAGE_ENDPOINT = StringUtil.correctEncode(JsonDataUtil.get("testurls", "menBackpackPageEndpoint"));
+    private final TextField allBagPacksOnPage = new TextField(By.xpath(StringUtil.correctEncode("//div[@class='x-product-card__card']")), "allBagPacks");
 
     @Override
     public BasePage openPage() {
@@ -32,7 +32,7 @@ public class MenBackPacksPage extends BasePage {
     public BagPage getTestBag(String testBag) {
         isPageOpened();
         if (testBag.equals("PUMA Bag Phase Backpack")) {
-            testBag = StringUtil.correctEncode("PUMA Рюкзак Phase Backpack");
+            testBag = StringUtil.correctEncode(StringUtil.correctEncode("PUMA Рюкзак Phase Backpack"));
         }
         for (WebElement bag : getAllBags()) {
             if (StringUtil.compareStrings(testBag, bag.getAttribute("textContent"))) {

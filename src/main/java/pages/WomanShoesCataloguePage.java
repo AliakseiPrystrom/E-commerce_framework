@@ -11,7 +11,7 @@ import java.util.List;
 public class WomanShoesCataloguePage extends BasePage {
     private final UniqElement uniqElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h1[text()='Женские кроссовки для бега']")), "uniqueElement");
     private final String allShoesPath = StringUtil.correctEncode("//a[@role='link' and text()='%s']");
-    private final String SHOES_CATALOGUE_PAGE_ENDPOINT = JsonDataUtil.get("testurls", "womanShoesCataloguePageEndpoint");
+    private final String SHOES_CATALOGUE_PAGE_ENDPOINT = StringUtil.correctEncode(JsonDataUtil.get("testurls", "womanShoesCataloguePageEndpoint"));
 
     @Override
     public WomanShoesCataloguePage openPage() {

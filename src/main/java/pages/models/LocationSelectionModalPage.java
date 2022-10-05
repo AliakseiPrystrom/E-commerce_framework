@@ -8,14 +8,15 @@ import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.HomePage;
 import utils.ActionsUtil;
+import utils.StringUtil;
 
 import java.util.List;
 
 public class LocationSelectionModalPage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//div[text() = 'Где вы находитесь?']"), "uniqueElement");
-    private final TextField allLocations = new TextField(By.xpath("//a[@role='button']//span"), "allLocations");
-    private final Button goToShopping = new Button(By.xpath("//button[text()='Перейти к покупкам']"), "goToShopping");
-    private String pathToCurrentCity = "//span[contains(text(),'%s')]";
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//div[text() = 'Где вы находитесь?']")), "uniqueElement");
+    private final TextField allLocations = new TextField(By.xpath(StringUtil.correctEncode("//a[@role='button']//span")), "allLocations");
+    private final Button goToShopping = new Button(By.xpath(StringUtil.correctEncode("//button[text()='Перейти к покупкам']")), "goToShopping");
+    private String pathToCurrentCity = StringUtil.correctEncode("//span[contains(text(),'%s')]");
 
     @Override
     public LocationSelectionModalPage openPage() {
