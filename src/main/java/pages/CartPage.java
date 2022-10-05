@@ -12,7 +12,7 @@ import utils.StringUtil;
 
 public class CartPage extends BasePage {
     private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//p[text()='Оформление заказа']")), "uniqueElement");
-    private final Label checkArticle = new Label(By.xpath("//a[@data-quick]"), "checkArticle");
+    private final Label checkArticle = new Label(By.xpath(StringUtil.correctEncode("//a[@data-quick]")), "checkArticle");
     private final TextField mainField = new TextField(By.xpath("//main"), "mainField");
     private final String goToOrder = StringUtil.correctEncode("//span[text()='Перейти к оформлению заказа']");
 

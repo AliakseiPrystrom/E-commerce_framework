@@ -46,7 +46,7 @@ public class BagPage extends BasePage {
         openColorSelect();
         color = JsonDataUtil.get("testdata", "backPackColor");
         if (color.equals("Grey")) {
-            color = "серый";
+            color = StringUtil.correctEncode("серый");
         }
         testColorSelect = new Label(By.xpath(String.format(currentColorPath, color)), "selectedBagColor");
         testColorSelect.click();

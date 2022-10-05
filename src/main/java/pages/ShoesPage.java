@@ -6,11 +6,12 @@ import org.openqa.selenium.By;
 import pages.models.CartModalPage;
 import utils.ActionsUtil;
 import utils.CookieUtil;
+import utils.StringUtil;
 import utils.WaitUtils;
 
 public class ShoesPage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//span[text()='Добавить в корзину']/parent::button"), "uniqueElement");
-    private final Label shoesArticle = new Label(By.xpath("//span[text()='Артикул']/../following-sibling::span"), "shoesArticle");
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//span[text()='Добавить в корзину']/parent::button")), "uniqueElement");
+    private final Label shoesArticle = new Label(By.xpath(StringUtil.correctEncode("//span[text()='Артикул']/../following-sibling::span")), "shoesArticle");
     private final String shoesLink;
 
     public ShoesPage(String shoesLink) {

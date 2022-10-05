@@ -4,16 +4,13 @@ import elements.Link;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utils.ActionsUtil;
-import utils.GetRandom;
-import utils.JSUtil;
-import utils.JsonDataUtil;
+import utils.*;
 
 import java.util.List;
 
 public class WomanShoesCataloguePage extends BasePage {
-    private final UniqElement uniqElement = new UniqElement(By.xpath("//h1[text()='Женские кроссовки для бега']"), "uniqueElement");
-    private final String allShoesPath = "//a[@role='link' and text()='%s']";
+    private final UniqElement uniqElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h1[text()='Женские кроссовки для бега']")), "uniqueElement");
+    private final String allShoesPath = StringUtil.correctEncode("//a[@role='link' and text()='%s']");
     private final String SHOES_CATALOGUE_PAGE_ENDPOINT = JsonDataUtil.get("testurls", "womanShoesCataloguePageEndpoint");
 
     @Override

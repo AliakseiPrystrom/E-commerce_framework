@@ -32,7 +32,7 @@ public class MenBackPacksPage extends BasePage {
     public BagPage getTestBag(String testBag) {
         isPageOpened();
         if (testBag.equals("PUMA Bag Phase Backpack")) {
-            testBag = "PUMA Рюкзак Phase Backpack";
+            testBag = StringUtil.correctEncode("PUMA Рюкзак Phase Backpack");
         }
         for (WebElement bag : getAllBags()) {
             if (StringUtil.compareStrings(testBag, bag.getAttribute("textContent"))) {

@@ -5,15 +5,16 @@ import elements.TextField;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import pages.models.LocationSelectionModalPage;
+import utils.StringUtil;
 
 public class HomePage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//h3[text()='Выберите интересующий вас раздел']"), "uniqueHomeMessage");
-    private final Button goToSportPage = new Button(By.xpath("//a[text()=' Спорт']"), "goToSportPage");
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h3[text()='Выберите интересующий вас раздел']")), "uniqueHomeMessage");
+    private final Button goToSportPage = new Button(By.xpath(StringUtil.correctEncode("//a[text()=' Спорт']")), "goToSportPage");
     private final Button locationSelection = new Button(By.xpath("//div[contains(@class,'go-geo-wrapper')]"), "locationSelectionButton");
-    private final Button forMenMenu = new Button(By.xpath("//a[@data-genders='men']"), "forMenMenu");
-    private final Button menBackPacks = new Button(By.xpath("//a[contains(@href,'bags-muzhskie-ryukzaki')]//div"), "menBackPacks");
+    private final Button forMenMenu = new Button(By.xpath(StringUtil.correctEncode("//a[@data-genders='men']")), "forMenMenu");
+    private final Button menBackPacks = new Button(By.xpath(StringUtil.correctEncode("//a[contains(@href,'bags-muzhskie-ryukzaki')]//div")), "menBackPacks");
     private final TextField scrollToSlider = new TextField(By.xpath("//div[contains(@class,'icons-banner')]"), "scrollToSlider");
-    private final TextField isMenCatalogueOpened = new TextField(By.xpath("//a[@data-genders = 'men' and @data-active = 'true']"), "isMenCatalogueOpened");
+    private final TextField isMenCatalogueOpened = new TextField(By.xpath(StringUtil.correctEncode("//a[@data-genders = 'men' and @data-active = 'true']")), "isMenCatalogueOpened");
     private final TextField currentCitySelected = new TextField(By.xpath("//span/child::span[@class='notranslate']"), "currentCitySelected");
 
     @Override
