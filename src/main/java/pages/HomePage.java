@@ -5,9 +5,11 @@ import elements.TextField;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Wait;
 import pages.models.LocationSelectionModalPage;
 import utils.ActionsUtil;
 import utils.StringUtil;
+import utils.WaitUtils;
 
 import javax.swing.*;
 
@@ -48,6 +50,7 @@ public class HomePage extends BasePage {
     }
 
     public LocationSelectionModalPage goToLocationSelection() {
+        WaitUtils.waitForElementToBeClickable(locationSelection.getElement());
         locationSelection.click();
         return new LocationSelectionModalPage();
     }
