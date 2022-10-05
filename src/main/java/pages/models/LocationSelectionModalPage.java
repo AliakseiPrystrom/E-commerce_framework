@@ -48,7 +48,7 @@ public class LocationSelectionModalPage extends BasePage {
 
     public boolean checkSelectedLocation() {
         String location = "Брест";
-        return new TextField(By.xpath(String.format(pathToCurrentCity, location)), "currentCity").isVisible();
+        return new TextField(By.xpath(StringUtil.correctEncode(String.format(pathToCurrentCity, location))), "currentCity").isVisible();
 
     }
 
