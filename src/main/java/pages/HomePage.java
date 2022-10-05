@@ -4,9 +4,12 @@ import elements.Button;
 import elements.TextField;
 import elements.UniqElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import pages.models.LocationSelectionModalPage;
 import utils.ActionsUtil;
 import utils.StringUtil;
+
+import javax.swing.*;
 
 public class HomePage extends BasePage {
     private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h3[text()='Выберите интересующий вас раздел']")), "uniqueHomeMessage");
@@ -50,6 +53,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage switchToMenMenu() {
+        ActionsUtil.waitActions();
         forMenMenu.click();
         return this;
     }
