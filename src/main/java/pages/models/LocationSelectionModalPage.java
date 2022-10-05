@@ -19,9 +19,7 @@ public class LocationSelectionModalPage extends BasePage {
     private String pathToCurrentCity = StringUtil.correctEncode("//span[contains(text(),'%s')]");
 
     @Override
-    public LocationSelectionModalPage openPage() {
-        return this;
-    }
+    public LocationSelectionModalPage openPage() {return this;}
 
     @Override
     public boolean isPageOpened() {
@@ -33,9 +31,10 @@ public class LocationSelectionModalPage extends BasePage {
     }
 
     public LocationSelectionModalPage chooseLocation(String testLocation) {
+        ActionsUtil.waitActions();
         isPageOpened();
         if (testLocation.equals("Brest")) {  //костыль из-за кодировки
-            testLocation = "Брест";
+            StringUtil.correctEncode(testLocation = "Брест");
         }
         for (WebElement location : getAllLocations()) {
             if (location.getText().contains(testLocation)) {

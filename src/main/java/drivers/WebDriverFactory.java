@@ -28,10 +28,9 @@ public class WebDriverFactory {
     public static ChromeDriver getChromeDriver() {
         WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--start-maximized");
-        chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("----headless");
         chromeOptions.addArguments("--incognito");
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--start-maximized");
         return new ChromeDriver(chromeOptions);
     }
 
