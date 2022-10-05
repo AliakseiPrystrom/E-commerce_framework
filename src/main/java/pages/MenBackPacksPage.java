@@ -10,7 +10,7 @@ import utils.JsonDataUtil;
 import java.util.List;
 
 public class MenBackPacksPage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//h1[text()='Мужские рюкзаки и мешки']"), "uniqueElement");
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//h1[text()='Мужские рюкзаки и мешки']")), "uniqueElement");
     private final String MEN_BACKPACK_PAGE_ENDPOINT = JsonDataUtil.get("testurls", "menBackpackPageEndpoint");
     private final TextField allBagPacksOnPage = new TextField(By.xpath("//div[@class='x-product-card__card']"), "allBagPacks");
 

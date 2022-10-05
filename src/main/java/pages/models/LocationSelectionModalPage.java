@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import pages.BasePage;
 import pages.HomePage;
+import utils.ActionsUtil;
 
 import java.util.List;
 
@@ -51,6 +52,7 @@ public class LocationSelectionModalPage extends BasePage {
     }
 
     public HomePage goToShopping() {
+        ActionsUtil.waitActions();
         checkSelectedLocation();
         goToShopping.click();
         return new HomePage();

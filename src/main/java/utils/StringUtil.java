@@ -1,5 +1,6 @@
 package utils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 public class StringUtil {
@@ -24,5 +25,10 @@ public class StringUtil {
         arr[0] = Character.toLowerCase(' ');
         arr[arr.length - 1] = Character.toLowerCase(' ');
         return new String(arr).trim();
+    }
+
+    public static String correctEncode(String input) {
+        byte[] stringBytes = input.getBytes();
+        return new String(stringBytes, StandardCharsets.UTF_8);
     }
 }

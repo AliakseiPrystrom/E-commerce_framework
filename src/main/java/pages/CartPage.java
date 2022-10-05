@@ -8,12 +8,13 @@ import org.openqa.selenium.By;
 import pages.models.OrderingFormModel;
 import utils.ActionsUtil;
 import utils.CookieUtil;
+import utils.StringUtil;
 
 public class CartPage extends BasePage {
-    private final UniqElement uniqueElement = new UniqElement(By.xpath("//p[text()='Оформление заказа']"), "uniqueElement");
+    private final UniqElement uniqueElement = new UniqElement(By.xpath(StringUtil.correctEncode("//p[text()='Оформление заказа']")), "uniqueElement");
     private final Label checkArticle = new Label(By.xpath("//a[@data-quick]"), "checkArticle");
     private final TextField mainField = new TextField(By.xpath("//main"), "mainField");
-    private final String goToOrder = "//span[text()='Перейти к оформлению заказа']";
+    private final String goToOrder = StringUtil.correctEncode("//span[text()='Перейти к оформлению заказа']");
 
     @Override
     public CartPage openPage() {
@@ -26,6 +27,7 @@ public class CartPage extends BasePage {
     }
 
     public boolean checkArticle() {
+        ActionsUtil.waitActions();
         String articleFromShoesPage = CookieUtil.getFromScope();
         String articleFromCartPage = checkArticle.getAttribute("data-quick");
         return articleFromShoesPage.equals(articleFromCartPage);

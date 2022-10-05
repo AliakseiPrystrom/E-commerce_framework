@@ -4,6 +4,7 @@ import elements.Label;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import pages.models.CartModalPage;
+import utils.ActionsUtil;
 import utils.CookieUtil;
 import utils.WaitUtils;
 
@@ -28,6 +29,7 @@ public class ShoesPage extends BasePage {
     }
 
     public void putArticleInScope() {
+        ActionsUtil.waitActions();
         String currentArticle = shoesArticle.getElements().get(0).getText();
         CookieUtil.putInScope("shoesArticle", currentArticle);
     }

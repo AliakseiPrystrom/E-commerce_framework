@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import pages.models.CartModalPage;
 import utils.ActionsUtil;
 import utils.JsonDataUtil;
+import utils.StringUtil;
 import utils.WaitUtils;
 
 import java.util.Locale;
@@ -16,7 +17,7 @@ public class BagPage extends BasePage {
     private final Button openDetails = new Button(By.xpath("//span/following-sibling::a"), "openDetails");
     private final Button openColorDropDown = new Button(By.xpath("//div[@tabindex]//a[@role]"), "selectColoDropDown");
     private Label testColorSelect;
-    private String currentColorPath = "//span[text()='%s']";
+    private String currentColorPath = StringUtil.correctEncode("//span[text()='%s']");
     private String testDataColor = JsonDataUtil.get("testdata", "backPackColor");
 
     @Override

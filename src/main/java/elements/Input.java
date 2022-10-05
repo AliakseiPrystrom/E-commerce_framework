@@ -17,6 +17,7 @@ public class Input extends BaseElement {
 
     public void sendKeys(CharSequence... keysToSend) {
         getElement().sendKeys(keysToSend);
+        log.info("Sending keys...");
     }
 
     public void clearInput() {
