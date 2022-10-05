@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:\Users\Aliaksei.Prystrom\IdeaProjects\E-commerce_framework">
+        <classes>
+            <class name="tests.LocationSelectionTest"></class>
+            <class name="tests.MensBackPacksTest"></class>
+            <class name="tests.ShoppingCartTest"></class>
+        </classes>
+    </test>
+</suite>
