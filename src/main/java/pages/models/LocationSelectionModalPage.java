@@ -9,6 +9,7 @@ import pages.BasePage;
 import pages.HomePage;
 import utils.ActionsUtil;
 import utils.StringUtil;
+import utils.WaitUtils;
 
 import java.util.List;
 
@@ -48,8 +49,9 @@ public class LocationSelectionModalPage extends BasePage {
 
     public boolean checkSelectedLocation() {
         String location = "Брест";
-        return new TextField(By.xpath(StringUtil.correctEncode(String.format(pathToCurrentCity, location))), "currentCity").isVisible();
-
+        TextField field = new TextField(By.xpath(StringUtil.correctEncode(String.format(pathToCurrentCity, location))), "currentCity");
+        WaitUtils.waitForElementToBeVisible(field.getElement());
+        return field.isVisible();
     }
 
     public HomePage goToShopping() {
