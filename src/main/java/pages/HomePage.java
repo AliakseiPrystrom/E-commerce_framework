@@ -48,6 +48,7 @@ public class HomePage extends BasePage {
     }
 
     public LocationSelectionModalPage goToLocationSelection() {
+        ActionsUtil.waitActions();
         locationSelection.click();
         return new LocationSelectionModalPage();
     }
