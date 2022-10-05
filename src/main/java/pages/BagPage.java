@@ -31,6 +31,7 @@ public class BagPage extends BasePage {
     }
 
     public BagPage openDetails() {
+        ActionsUtil.waitActions();
         WaitUtils.waitForElementToBePresent(openDetails.getxPath());
         openDetails.JSscroll();
         openDetails.click();
