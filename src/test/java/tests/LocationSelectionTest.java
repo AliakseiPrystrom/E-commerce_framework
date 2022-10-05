@@ -16,6 +16,7 @@ public class LocationSelectionTest extends BaseTest {
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println(WebDriverManager.getDriver().manage().window().getSize());
         WebDriverManager.getDriver().manage().window().setSize(new Dimension(1024, 768));
+        System.out.println(WebDriverManager.getDriver().manage().window().getSize());
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
 
