@@ -5,6 +5,7 @@ import elements.TextField;
 import elements.UniqElement;
 import org.openqa.selenium.By;
 import pages.models.LocationSelectionModalPage;
+import utils.ActionsUtil;
 import utils.StringUtil;
 
 public class HomePage extends BasePage {
@@ -38,6 +39,7 @@ public class HomePage extends BasePage {
     }
 
     public SportCataloguePage goToSportPage() {
+        ActionsUtil.waitActions();
         goToSportPage.click();
         return new SportCataloguePage();
     }
