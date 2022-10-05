@@ -32,9 +32,12 @@ public class BagPage extends BasePage {
 
     public BagPage openDetails() {
         System.out.println("______________________________________________________________________________________________________________");
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         WaitUtils.waitForElementToBePresent(openDetails.getxPath());
-        WaitUtils.waitForElementToBeVisible(openDetails.getElement());
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         openDetails.JSscroll();
         openDetails.click();
         WaitUtils.waitForElementToBeInvisible(openDetails.getxPath());
